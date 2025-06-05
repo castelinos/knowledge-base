@@ -3,7 +3,8 @@ import Book from "../models/Book.js";
 export async function getBooks( req, res, next){
     try {
         const books = await Book.find();
-        res.status(200).send(books[0]);
+-        res.status(200).send(books[0]);
++        res.status(200).send(books);
     } catch (error) {
         res.status(500).send({message:'Failed to get books'})
     }
