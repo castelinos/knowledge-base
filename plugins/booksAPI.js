@@ -12,6 +12,7 @@ export async function getBooks( req, res, next){
 export async function createBook( req, res, next ){
     try {
         await Book.create(res.body);
+        console.log(res.body);
         res.status(201).send({status:"success"})
     } catch (error) {
         res.status(500).send({message:"Failed to create book"})
