@@ -7,7 +7,7 @@ export default async function validateInput( req, res, next ){
         url = url.concat(req.route.path);
     }
 
-    if( req.method === 'GET' ) return next();
+    if( req.method === 'GET' || req.method !== 'post' ) return next();
 
     try {
         switch(url){
