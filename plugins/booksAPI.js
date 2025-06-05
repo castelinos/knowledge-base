@@ -29,7 +29,7 @@ export async function showBook( req, res, next ){
 
 export async function updateBook( req, res, next ){
     try {
-        await res.book.deleteOne(req.body);
+        await res.book.updateOne(req.body);
         res.status(200).send({"message":"Book updated"})
     } catch (error) {
         res.status(500).send({"message":"Failed to update book"})
