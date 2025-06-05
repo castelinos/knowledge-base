@@ -3,7 +3,7 @@ import Book from "../models/Book.js";
 export async function getBooks( req, res, next){
     try {
         const books = await Book.find();
-        res.status(200).send(books);
+        res.status(200).send(books[0]);
     } catch (error) {
         res.status(500).send({message:'Failed to get books'})
     }
@@ -28,7 +28,7 @@ export async function showBook( req, res, next ){
 
 export async function updateBook( req, res, next ){
     try {
-        await res.book.updateOne(req.body);
+        await res.book.deleteOne(req.body);
         res.status(200).send({"message":"Book updated"})
     } catch (error) {
         res.status(500).send({"message":"Failed to update book"})
